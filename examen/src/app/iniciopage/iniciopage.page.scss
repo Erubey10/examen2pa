@@ -3,9 +3,57 @@ ion-content {
   display: flex;
   flex-direction: column;
   align-items: center !important;
+  height: 100%;
   justify-content: center !important;
   min-height: 100vh;
   padding: 20px;
+  margin-bottom: 1000px;
+}
+
+ion-header {
+  --background: #ffffff !important;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+ion-toolbar {
+  --background: transparent;
+  --min-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.info-section {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+  background-color: #001a31;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.results-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 75px;
+}
+
+.btn-text {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.btn-icon {
+  font-size: 1rem !important;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+  max-height: 150px;
 }
 
 .custom-card {
@@ -34,13 +82,13 @@ ion-content {
   margin: 10px;
 }
 
-ion-button {
-  font-size: 0.8rem;
+.ion-button {
+  font-size: 0.6rem;
   font-weight:bold;
   font-family: 'Montserrat', sans-serif !important;
   color: white !important;
 }
 
-ion-card-title {
+.ion-card-title {
   color: #003366;
 }
