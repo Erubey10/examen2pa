@@ -1,4 +1,84 @@
+ion-content {
+  --background: #001a31;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.custom-card {
+  background-color: white;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column;
+  max-width: 350px;
+  max-height: 700px ;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: black !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.card-content {
+  display: flex !important;
+  align-items: center !important;
+}
+
 .small-image {
-    width: 200px; /* Ajusta el ancho de la imagen según sea necesario */
-    height: auto; /* Mantén la relación de aspecto original */
-  }  
+  width: 170px;
+  height: 170px;
+  border-radius: 10%;
+  margin: 10px;
+}
+
+ion-button {
+  font-size: 0.8rem;
+  font-weight:bold;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+ion-card-title {
+  color: #003366;
+}
+
+ion-title {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+ion-modal {
+  --height: 50%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --background: white !important;
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: #001a31
+  --color: white;
+}
+
+ion-modal ion-item {
+  --background: white; /* Color de fondo para los items */
+}
+
+h2 {
+  color: #003366;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+p {
+  color: black;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+ion-list {
+  --background: white !important;
+}

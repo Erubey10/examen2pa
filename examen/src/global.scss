@@ -38,8 +38,17 @@
 
 body {
     background-color: #f0f0f0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+ion-content::part(scroll) {
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer 10+ */
+  }
+  
+  ion-content::part(scroll)::-webkit-scrollbar {
+    display: none; /* Para Safari y Chrome */
+  }
