@@ -33,22 +33,61 @@
  */
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+/*@import "@ionic/angular/css/palettes/dark.class.css"; */
 
 body {
-    background-color: #f0f0f0;
-    font-family: 'Montserrat', sans-serif !important;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  background-color: #f0f0f0;
+  font-family: "Montserrat", sans-serif !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ion-content::part(scroll) {
-    scrollbar-width: none; /* Para Firefox */
-    -ms-overflow-style: none; /* Para Internet Explorer 10+ */
-  }
-  
-  ion-content::part(scroll)::-webkit-scrollbar {
-    display: none; /* Para Safari y Chrome */
-  }
+  scrollbar-width: none; /* Para Firefox */
+  -ms-overflow-style: none; /* Para Internet Explorer 10+ */
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+  display: none; /* Para Safari y Chrome */
+}
+
+ion-title {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+ion-modal {
+  --height: 50%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --background: white !important;
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: #001a31 !important;
+  --color: white;
+}
+
+ion-modal ion-item {
+  --background: white;
+}
+
+h2 {
+  color: #003366;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+p {
+  color: black;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+ion-list {
+    background-color: white !important;
+}

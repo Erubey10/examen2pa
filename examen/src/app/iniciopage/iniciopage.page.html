@@ -5,102 +5,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="custom-card">
+  <ion-card class="custom-card" *ngFor="let candidato of candidatos">
     <div class="card-content">
-      <img class="small-image" src="/assets/icon/img/frank.jpg" />
+      <img class="small-image" [src]="candidato.imagen" />
       <div class="details">
         <ion-card-header>
-          <ion-card-title class="custom-title">Candidato Forrest Gump</ion-card-title>
+          <ion-card-title class="custom-title">{{ candidato.nombre }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-button expand="block" color="primary" (click)="verDetalles()">Detalles</ion-button>
-          <ion-button expand="block">Votar</ion-button>
-        </ion-card-content>
-      </div>
-    </div>
-  </ion-card>
-
-  <ion-card class="custom-card">
-    <div class="card-content">
-      <img class="small-image" src="/assets/icon/img/frank.jpg" />
-      <div class="details">
-        <ion-card-header>
-          <ion-card-title>Candidato Forrest Gump</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-button id="open-modal" expand="block">Detalles</ion-button>
-          <ion-button expand="block">Votar</ion-button>
-        </ion-card-content>
-      </div>
-    </div>
-  </ion-card>
-
-  <ion-modal #modal trigger="open-modal">
-    <ng-template>
-      <ion-content>
-        <ion-toolbar>
-          <ion-title>Detalles del Candidato</ion-title>
-          <ion-buttons slot="end">
-            <ion-button color="dark" (click)="modal.dismiss()">Cerrar</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-        <ion-list class="ion-list">
-          <!-- Información del candidato -->
-          <ion-item>
-            <ion-avatar slot="start">
-              <ion-img src="/assets/icon/img/frank.jpg"></ion-img>
-            </ion-avatar>
-            <ion-label>
-              <h2>Forrest Gump</h2>
-              <p>Candidato a la Alcaldía</p>
-            </ion-label>
-          </ion-item>
-          
-          <!-- Propuesta 1 -->
-          <ion-item>
-            <ion-label>
-              <h2>Educación</h2>
-              <p>Mejorar la infraestructura y calidad de educación en todas las escuelas públicas.</p>
-            </ion-label>
-          </ion-item>
-  
-          <!-- Propuesta 2 -->
-          <ion-item>
-            <ion-label>
-              <h2>Salud</h2>
-              <p>Aumentar el presupuesto en salud pública para garantizar atención médica de calidad para todos.</p>
-            </ion-label>
-          </ion-item>
-  
-          <!-- Propuesta 3 -->
-          <ion-item>
-            <ion-label>
-              <h2>Transporte</h2>
-              <p>Desarrollar nuevas líneas de metro y mejorar la flota de autobuses para facilitar la movilidad urbana.</p>
-            </ion-label>
-          </ion-item>
-  
-          <!-- Propuesta 4 -->
-          <ion-item>
-            <ion-label>
-              <h2>Seguridad</h2>
-              <p>Incrementar el número de efectivos policiales y mejorar su capacitación para garantizar la seguridad ciudadana.</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-
-  <ion-card class="custom-card">
-    <div class="card-content">
-      <img class="small-image" src="/assets/icon/img/guimel.jpg" />
-      <div class="details">
-        <ion-card-header>
-          <ion-card-title>Candidato Guimel Prime</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-button expand="block" color="primary" (click)="verDetalles()">Detalles</ion-button>
+          <ion-button expand="block" (click)="verDetalles(candidato)">Detalles</ion-button>
           <ion-button expand="block">Votar</ion-button>
         </ion-card-content>
       </div>

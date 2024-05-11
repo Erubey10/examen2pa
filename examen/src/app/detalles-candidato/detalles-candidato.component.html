@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-title>Detalles del Candidato</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img [src]="candidato.imagen"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ candidato.nombre }}</h2>
+        <p>{{ candidato.cargo }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngFor="let detalle of candidato.detalles">
+      <ion-label>
+        <h2>{{ detalle.tema }}</h2>
+        <p>{{ detalle.propuesta }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular'; // Importa NavController
+import { ModalController, NavController } from '@ionic/angular'; // Importa ModalController
+import { DetallesCandidatoComponent } from '../detalles-candidato/detalles-candidato.component'; // Asegúrate de tener este componente
 
 @Component({
   selector: 'app-iniciopage',
@@ -7,22 +8,47 @@ import { NavController } from '@ionic/angular'; // Importa NavController
   styleUrls: ['./iniciopage.page.scss'],
 })
 export class IniciopagePage implements OnInit {
+  candidatos = [
+    {
+      nombre: 'Forrest Gump',
+      imagen: '/assets/icon/img/frank.jpg',
+      cargo: 'Candidato a la Alcaldía',
+      detalles: [
+        { tema: 'Educación', propuesta: 'Mejorar la infraestructura y calidad de educación.' },
+        { tema: 'Salud', propuesta: 'Aumentar el presupuesto en salud pública.' },
+      ]
+    },
+    {
+      nombre: 'Emilio Prime',
+      imagen: '/assets/icon/img/guimel.jpg',
+      cargo: 'Candidato a la Alcaldía',
+      detalles: [
+        { tema: 'Educación', propuesta: 'Mejorar la infraestructura y calidad de educación.' },
+        { tema: 'Salud', propuesta: 'Aumentar el presupuesto en salud pública.' },
+      ]
+    },
+  ];
 
-  constructor(private navCtrl: NavController) { }
+  constructor(
+    private navCtrl: NavController,
+    private modalController: ModalController
+  ) {}
 
-verDetalles() {
-  // Lógica para ver detalles del candidato
-}
+  ngOnInit() {}
 
-resultados() {
-  // Redirige a otra página
-  this.navCtrl.navigateForward('/resultados'); // Cambia 'nueva-pagina' por la ruta de la página a la que quieres ir
-}
-  ngOnInit() {
+  resultados() {
+    this.navCtrl.navigateForward('/resultados');
+  }
+
+  async verDetalles(candidato:any) {
+    const modal = await this.modalController.create({
+      component: DetallesCandidatoComponent,
+      componentProps: { candidato: candidato }
+    });
+    return await modal.present();
   }
 
 }
-
 
 
 
