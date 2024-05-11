@@ -6,10 +6,11 @@ $color-text: #424242;
 
 h1 {
   color: black;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 ion-content {
-  --background: #f0f0f0;
+  --background: #001a31;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -40,6 +41,7 @@ ion-item {
 
 ion-label {
   color: black !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 ion-input {
@@ -47,11 +49,13 @@ ion-input {
   --color: black;
   --background: $color-input-bg;
   border-color: #424242;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 ion-button {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight:bold;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 ion-row {
