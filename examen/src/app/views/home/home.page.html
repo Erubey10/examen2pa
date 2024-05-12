@@ -4,18 +4,18 @@
     <h1>Inicia Sesion</h1>
     <ion-item>
       <ion-label position="floating">Correo</ion-label>
-      <ion-input type="email" placeholder=""></ion-input>
+      <ion-input type="email" placeholder="" [(ngModel)]="correo" name="correo" ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" placeholder=""></ion-input>
+      <ion-input type="password" placeholder=""  [(ngModel)]="contrasena" name="contrasena"></ion-input>
     </ion-item>
 
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" type="submit" onclick="btninicio()" [routerLink]="['/iniciopage']">Iniciar Sesión</ion-button>
+        <ion-button expand="block" type="submit" (click)="login()" >Iniciar Sesión</ion-button>
       </ion-col>
     </ion-row>
   </form>

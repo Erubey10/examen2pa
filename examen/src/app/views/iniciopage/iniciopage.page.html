@@ -2,7 +2,7 @@
   <ion-toolbar>
     <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
       <img class="logo" src="/assets/icon/logoDirecta2.png" alt="Logo">
-      <ion-button class="btn-icon" color="primary" expand="block">
+      <ion-button class="btn-icon" color="primary" expand="block" (click)="salir()">
         <ion-icon slot="start" name="log-in-outline"></ion-icon>
         Salir
       </ion-button>
@@ -12,7 +12,8 @@
 
 <ion-content>
   <div class="info-section">
-    Bienvenido a la plataforma de votación. Aquí puedes votar por tus candidatos preferidos y ver detalles sobre sus propuestas y planes de trabajo. Tu voto es importante para decidir el futuro.
+    Bienvenido a la plataforma de votación. Aquí puedes votar por tus candidatos preferidos y ver detalles sobre sus
+    propuestas y planes de trabajo. Tu voto es importante para decidir el futuro.
   </div>
 
   <ion-card class="custom-card" *ngFor="let candidato of candidatos">
@@ -21,13 +22,27 @@
       <div class="details">
         <ion-card-header>
           <ion-card-title class="custom-title">{{ candidato.nombre }}</ion-card-title>
+          <ion-card-subtitle>{{ candidato.partidoPolitico.nombre }}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
           <ion-button expand="block" (click)="verDetalles(candidato)">Detalles</ion-button>
-          <ion-button expand="block">Votar</ion-button>
+          <ion-button expand="block" (click)="votar(candidato)">Votar</ion-button>
         </ion-card-content>
       </div>
     </div>
+  </ion-card>
+
+  <ion-card class="custom-card" *ngFor="let candidato of candidatos">
+    <div class="image-container">
+      <img [src]="candidato.imagen" class="card-image"/>
+    </div>
+    <ion-card-header>
+      <ion-card-title class="custom-title" >{{ candidato.nombre }}</ion-card-title>
+      <ion-card-subtitle>{{ candidato.partidoPolitico.nombre }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-button fill="clear" style="color: blue;" (click)="verDetalles(candidato)" >Detalles</ion-button>
+    <ion-button fill="clear" style="color: blue;" (click)="votar(candidato)">Votar</ion-button>
   </ion-card>
 
   <div class="results-button-container">
@@ -45,5 +60,5 @@
   <ion-footer>
     <div style="height: 50px;"></div>
   </ion-footer>
-  
+
 </ion-content>

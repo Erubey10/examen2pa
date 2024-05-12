@@ -14,11 +14,15 @@
         <h2>{{ candidato.nombre }}</h2>
         <p>{{ candidato.cargo }}</p>
       </ion-label>
+      <div>
+        <ion-img class="partido-img" src="{{ candidato.partidoPolitico.imagen }}" slot="end"></ion-img>
+        <p class="partido-nombre">{{ candidato.partidoPolitico.nombre }}</p>
+      </div>
     </ion-item>
-    <ion-item *ngFor="let detalle of candidato.detalles">
+    <ion-item *ngFor="let propuesta of candidato.propuestas">
       <ion-label>
-        <h2>{{ detalle.tema }}</h2>
-        <p>{{ detalle.propuesta }}</p>
+        <h2>{{ propuesta.tema }}</h2>
+        <p>{{ propuesta.descripcion }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
