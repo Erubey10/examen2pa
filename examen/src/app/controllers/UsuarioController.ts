@@ -23,13 +23,13 @@ export class UsuarioController {
         this.usuarios.push(nuevoUsuario);*/
     }
 
-    obtenerUsuarioPorId(id: number): Usuario | undefined {
+    /*obtenerUsuarioPorId(id: number): Usuario | undefined {
         const usuario = this.usuarios.find(u => u.id === id);
         return usuario;
-    }
+    }*/
 
     login(nombreUsuario: string, password: string): Observable<Usuario | undefined> {
-        const url = 'http://localhost:3111/api/iniciarSesion';
+        const url = 'http://mybluu.tech:3004/api/iniciarSesion';
         const body = { nombreUsuario, password };
     
         return this.http.post<Usuario | undefined>(url, body)
@@ -43,10 +43,12 @@ export class UsuarioController {
           );
       }
 
-    marcarVoto(id: number): void {
-        const usuario = this.obtenerUsuarioPorId(id);
-        if (usuario) {
-            usuario.voto = true;
-        }
-    }
+      marcarVoto(usuarioID: number, opcion: string): Observable<any | undefined> {
+        const url = 'http://mybluu.tech:3004/api/registrarVoto';
+        const body = { usuarioID, opcion };
+        return this.http.post<any>(url, body)
+          .pipe(
+            catchError(() => of(undefined))
+          );
+      }
 }
