@@ -12,17 +12,17 @@
       </ion-avatar>
       <ion-label>
         <h2>{{ candidato.nombre }}</h2>
-        <p>{{ candidato.cargo }}</p>
+        <p>{{ candidato.nombre }}</p>
       </ion-label>
       <div>
-        <ion-img class="partido-img" src="{{ candidato.partidoPolitico.imagen }}" slot="end"></ion-img>
-        <p class="partido-nombre">{{ candidato.partidoPolitico.nombre }}</p>
+        <ion-img class="partido-img" src="{{ candidato.partido.imagen }}" slot="end"></ion-img>
+        <p class="partido-nombre">{{ candidato.partido.nombre }}</p>
       </div>
     </ion-item>
-    <ion-item *ngFor="let propuesta of candidato.propuestas">
+    <ion-item *ngFor="let propuesta of candidato.partido.propuestas">
       <ion-label>
         <h2>{{ propuesta.tema }}</h2>
-        <p>{{ propuesta.descripcion }}</p>
+        <p>{{ propuesta.texto }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

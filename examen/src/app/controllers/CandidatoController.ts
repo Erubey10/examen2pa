@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import Candidato from "../models/Candidato";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -26,7 +28,8 @@ export class CandidatoController {
                 }
             ],
             votos: 3,
-            color: 'rgb(30,144,255)'
+            color: 'rgb(30,144,255)',
+            opcion: undefined
         },
         {
             id: 2,
@@ -48,20 +51,29 @@ export class CandidatoController {
                 },
             ],
             votos: 15,
-            color: 'rgb(255,128,0)'
+            color: 'rgb(255,128,0)',
+            opcion: undefined
         }
     ];
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
-    obtenerCandidatos(): Candidato[] {
-        return this.candidatos;
-    }
+    obtenerCandidatos(): Observable<Candidato[]> {
+        const url = 'http://mybluu.tech:3004/api/obtenerCandidatos';
+        
+        return this.http.get<Candidato[]>(url);
+      }
+    obtenerVotos(): Observable<Candidato[]> {
+        const url = 'http://mybluu.tech:3004/api/obtenerVotos';
+        
+        return this.http.get<any[]>(url);
+      }
+    
 
-    obtenerCandidatoPorNombre(nombre: string): Candidato | undefined {
+    /*obtenerCandidatoPorNombre(nombre: string): Candidato | undefined {
         const candidato = this.candidatos.find(c => c.nombre === nombre);
         return candidato;
-    }
+    }*/
 
     votarPorCandidato(id: number): void {
         const candidato = this.candidatos.find(c => c.id === id);

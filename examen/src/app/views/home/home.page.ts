@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioController } from 'src/app/controllers/UsuarioController';
 import { NavController } from '@ionic/angular';
+import Usuario from 'src/app/models/Usuario';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,15 @@ export class HomePage implements OnInit{
   }
 
   login() {
-    const usuario = this.usuarioController.login(this.correo, this.contrasena);
-    if (usuario) {
-      localStorage.setItem('idUsuario', usuario.id.toString());
-      this.navCtrl.navigateForward('/iniciopage');
-    } else {
-      alert('Usuario o contraseña incorrectos');
-    }
+    this.usuarioController.login(this.correo, this.contrasena)
+      .subscribe(usuario => {
+        if (usuario) {
+          localStorage.setItem('idUsuario', usuario.id.toString());
+          this.navCtrl.navigateForward('/iniciopage');
+        } else {
+          alert('Usuario o contraseña incorrectos');
+        }
+      });
   }
 }
 

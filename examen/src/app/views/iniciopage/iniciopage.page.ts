@@ -11,7 +11,7 @@ import Candidato from 'src/app/models/Candidato';
   styleUrls: ['./iniciopage.page.scss'],
 })
 export class IniciopagePage implements OnInit {
-  candidatos = this.candidatoController.obtenerCandidatos();
+  candidatos?: any[];
 
   constructor(
     private navCtrl: NavController,
@@ -21,9 +21,19 @@ export class IniciopagePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.obtenerCandidatos();
     console.log('Iniciando...');
   }
-
+  obtenerCandidatos() {
+    this.candidatoController.obtenerCandidatos().subscribe(
+      candidatos => {
+        this.candidatos = candidatos;
+      },
+      error => {
+        console.error('Error al obtener candidatos:', error);
+      }
+    );
+  }
   resultados() {
     console.log('Viendo resultados...');
     this.navCtrl.navigateForward('/resultados');
@@ -38,16 +48,18 @@ export class IniciopagePage implements OnInit {
   }
 
   votar(candidato: Candidato) {
-    const usuario = this.usuarioController.obtenerUsuarioPorId(Number(localStorage.getItem('idUsuario')));
-    if (usuario && !usuario.voto) {
-      if (confirm('¿Estás seguro de votar por ' + candidato.nombre + '?')) {
-        this.candidatoController.votarPorCandidato(candidato.id);
-        this.usuarioController.marcarVoto(usuario.id);
-        alert('Voto registrado');
-        this.navCtrl.navigateForward('/resultados');
-      }
-    } else {
-      alert('Ya votaste');
+
+    if (confirm('¿Estás seguro de votar por ' + candidato.nombre + '?')) {
+      this.usuarioController.marcarVoto(Number(localStorage.getItem('idUsuario')), candidato.nombre)
+        .subscribe(response => {
+          console.log(response);
+          if (response !== undefined) {
+            alert('Voto registrado');
+            this.navCtrl.navigateForward('/resultados');
+          } else {
+            alert('Usted ya habia votado');
+          }
+        });
     }
   }
 
