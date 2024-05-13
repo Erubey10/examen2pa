@@ -11,7 +11,7 @@ import Candidato from 'src/app/models/Candidato';
   styleUrls: ['./iniciopage.page.scss'],
 })
 export class IniciopagePage implements OnInit {
-  candidatos = this.candidatoController.obtenerCandidatos();
+  candidatos?: any[];
 
   constructor(
     private navCtrl: NavController,
@@ -21,15 +21,26 @@ export class IniciopagePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.obtenerCandidatos();
     console.log('Iniciando...');
   }
-
+  obtenerCandidatos() {
+    this.candidatoController.obtenerCandidatos().subscribe(
+      candidatos => {
+        this.candidatos = candidatos;
+      },
+      error => {
+        console.error('Error al obtener candidatos:', error);
+      }
+    );
+  }
   resultados() {
     console.log('Viendo resultados...');
     this.navCtrl.navigateForward('/resultados');
   }
 
   async verDetalles(candidato: any) {
+    console.log(candidato)
     const modal = await this.modalController.create({
       component: DetallesCandidatoComponent,
       componentProps: { candidato: candidato }

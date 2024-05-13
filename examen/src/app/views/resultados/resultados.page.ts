@@ -22,7 +22,7 @@ export class ResultadosPage implements AfterViewInit {
 
   ngAfterViewInit() {
     this.barChartMethod();
-    this.doughnutChartMethod();
+    //this.doughnutChartMethod();
   }
 
   barChartMethod() {
@@ -35,7 +35,7 @@ export class ResultadosPage implements AfterViewInit {
       Legend,
       BarController
     );
-    this.barChart = new Chart(this.barCanvas.nativeElement, {
+    /*this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
         labels: this.candidatoController.obtenerCandidatos().map(c => c.nombre),
@@ -43,7 +43,7 @@ export class ResultadosPage implements AfterViewInit {
           label: '# of Votes',
           data: this.candidatoController.obtenerCandidatos().map(c => c.votos),
           backgroundColor: this.candidatoController.obtenerCandidatos().map(c => c.color),
-          borderColor: this.candidatoController.obtenerCandidatos().map(c => c.color),
+          borderColor: 'rgb(30,144,255)',
           borderWidth: 1
         }]
       },
@@ -54,10 +54,10 @@ export class ResultadosPage implements AfterViewInit {
           }
         }
       }
-    });
+    });*/
   }
 
-  doughnutChartMethod() {
+  /*doughnutChartMethod() {
     Chart.register(DoughnutController, ArcElement, Tooltip, Legend);
     
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
@@ -72,7 +72,7 @@ export class ResultadosPage implements AfterViewInit {
         }]
       }
     });
-  }
+  }*/
 
 }
 

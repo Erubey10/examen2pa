@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import Candidato from "../models/Candidato";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -52,11 +54,14 @@ export class CandidatoController {
         }
     ];
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
-    obtenerCandidatos(): Candidato[] {
-        return this.candidatos;
-    }
+    obtenerCandidatos(): Observable<Candidato[]> {
+        const url = 'http://localhost:3111/api/obtenerCandidatos';
+        
+        return this.http.get<Candidato[]>(url);
+      }
+    
 
     obtenerCandidatoPorNombre(nombre: string): Candidato | undefined {
         const candidato = this.candidatos.find(c => c.nombre === nombre);
