@@ -26,27 +26,10 @@ export class UsuarioController {
         return usuario;
     }*/
 
-<<<<<<< HEAD
-    login(nombreUsuario: string, password: string): Observable<Usuario | undefined> {
-        const url = 'https://mybluu.tech:3004/api/iniciarSesion';
-        const body = { nombreUsuario, password };
-    
-        return this.http.post<Usuario | undefined>(url, body)
-          .pipe(
-            tap(usuario => {
-              if (usuario && usuario.id) {
-                localStorage.setItem('idUsuario', usuario.id.toString());
-              }
-            }),
-            catchError(() => of(undefined))
-          );
-      }
-=======
     login(correo: string, contrasena: string): Usuario | undefined {
         const usuario = this.usuarios.find(u => u.correo === correo && u.contrasena === contrasena);
         return usuario;
     }
->>>>>>> parent of 94fdbe3 (endpoints added and modified views)
 
       marcarVoto(usuarioID: number, opcion: string): Observable<any | undefined> {
         const url = 'https://mybluu.tech:3004/api/registrarVoto';

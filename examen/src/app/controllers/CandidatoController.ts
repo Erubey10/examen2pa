@@ -56,23 +56,9 @@ export class CandidatoController {
 
     constructor() { }
 
-<<<<<<< HEAD
-    obtenerCandidatos(): Observable<Candidato[]> {
-        const url = 'https://mybluu.tech:3004/api/obtenerCandidatos';
-        
-        return this.http.get<Candidato[]>(url);
-      }
-    obtenerVotos(): Observable<Candidato[]> {
-        const url = 'https://mybluu.tech:3004/api/obtenerVotos';
-        
-        return this.http.get<any[]>(url);
-      }
-    
-=======
     obtenerCandidatos(): Candidato[] {
         return this.candidatos;
     }
->>>>>>> parent of 94fdbe3 (endpoints added and modified views)
 
     /*obtenerCandidatoPorNombre(nombre: string): Candidato | undefined {
         const candidato = this.candidatos.find(c => c.nombre === nombre);
