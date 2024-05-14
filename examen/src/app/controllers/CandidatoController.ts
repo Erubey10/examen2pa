@@ -49,6 +49,50 @@ export class CandidatoController {
             ],
             votos: 15,
             color: 'rgb(255,128,0)'
+        },
+        {
+            id: 3,
+            nombre: 'Forrest Gump',
+            imagen: '/assets/icon/img/frank.jpg',
+            cargo: 'Presidente Nacional',
+            partidoPolitico: {
+                nombre: 'Partido del otro bando',
+                imagen: 'https://wallpapercave.com/wp/wp5818367.jpg'
+            },
+            propuestas: [
+                {
+                    tema: 'Educación',
+                    descripcion: 'Mejorar la infraestructiura y calidad de educación.'
+                },
+                {
+                    tema: 'Salud',
+                    descripcion: 'Aumentar el presupuesto en salud pública.'
+                }
+            ],
+            votos: 3,
+            color: 'rgb(30,144,255)'
+        },
+        {
+            id: 4,
+            nombre: 'Emilio Prime',
+            imagen: '/assets/icon/img/guimel.jpg',
+            cargo: 'Presidente Municipal',
+            partidoPolitico: {
+                nombre: 'Partido Castores',
+                imagen: 'https://i.ytimg.com/vi/Or7W0auWRw0/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGCUgVSh_MA8=&rs=AOn4CLAERDJGjzzkO1p5IPQA_iFLkhi5Zw'
+            },
+            propuestas: [
+                {
+                    tema: 'Aperitiva',
+                    descripcion: 'Todos los dias promo n ochovavia'
+                },
+                {
+                    tema: 'Estoica',
+                    descripcion: 'Programar todos los dias sin parar'
+                },
+            ],
+            votos: 15,
+            color: 'rgb(255,128,0)'
         }
     ];
 
