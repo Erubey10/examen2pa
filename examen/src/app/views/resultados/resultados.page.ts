@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { ArcElement, BarController, BarElement, CategoryScale, Chart, DoughnutController, Legend, LineController, LineElement, LinearScale, PointElement, Title, Tooltip } from 'chart.js';
 import { CandidatoController } from 'src/app/controllers/CandidatoController';
 
@@ -16,7 +17,7 @@ export class ResultadosPage implements AfterViewInit {
   barChart: any;
   doughnutChart: any;
 
-  constructor(private candidatoController: CandidatoController) {
+  constructor(private candidatoController: CandidatoController, private navCtrl: NavController) {
 
   }
 
@@ -72,6 +73,12 @@ export class ResultadosPage implements AfterViewInit {
         }]
       }
     });
+  }
+
+  salir() {
+    console.log('Saliendo...');
+    this.navCtrl.navigateBack('/home');
+    localStorage.removeItem('idUsuario');
   }
 
 }
