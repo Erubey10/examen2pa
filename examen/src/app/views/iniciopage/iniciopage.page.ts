@@ -30,6 +30,7 @@ export class IniciopagePage implements OnInit {
   }
 
   async verDetalles(candidato: any) {
+    console.log(candidato)
     const modal = await this.modalController.create({
       component: DetallesCandidatoComponent,
       componentProps: { candidato: candidato }
@@ -38,18 +39,16 @@ export class IniciopagePage implements OnInit {
   }
 
   votar(candidato: Candidato) {
-
-    if (confirm('¿Estás seguro de votar por ' + candidato.nombre + '?')) {
-      this.usuarioController.marcarVoto(Number(localStorage.getItem('idUsuario')), candidato.nombre)
-        .subscribe(response => {
-          console.log(response);
-          if (response !== undefined) {
-            alert('Voto registrado');
-            this.navCtrl.navigateForward('/resultados');
-          } else {
-            alert('Usted ya habia votado');
-          }
-        });
+    const usuario = this.usuarioController.obtenerUsuarioPorId(Number(localStorage.getItem('idUsuario')));
+    if (usuario && !usuario.voto) {
+      if (confirm('¿Estás seguro de votar por ' + candidato.nombre + '?')) {
+        this.candidatoController.votarPorCandidato(candidato.id);
+        this.usuarioController.marcarVoto(usuario.id);
+        alert('Voto registrado');
+        this.navCtrl.navigateForward('/resultados');
+      }
+    } else {
+      alert('Ya votaste');
     }
   }
 

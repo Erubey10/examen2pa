@@ -10,7 +10,6 @@ export default class Candidato {
     propuestas: Propuesta[];
     votos: number;
     color: string;
-  opcion: any;
     
     constructor(id: number, nombre: string, imagen: string, cargo: string, partidoPolitico: PartidoPolitico, propuestas: Propuesta[], votos: number, color: string) {
         this.id = id;

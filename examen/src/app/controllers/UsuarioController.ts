@@ -21,11 +21,12 @@ export class UsuarioController {
         this.usuarios.push(nuevoUsuario);
     }
 
-    /*obtenerUsuarioPorId(id: number): Usuario | undefined {
+    obtenerUsuarioPorId(id: number): Usuario | undefined {
         const usuario = this.usuarios.find(u => u.id === id);
         return usuario;
-    }*/
+    }
 
+<<<<<<< HEAD
     login(correo: string, contrasena: string): Usuario | undefined {
         const usuario = this.usuarios.find(u => u.correo === correo && u.contrasena === contrasena);
         return usuario;
@@ -39,4 +40,27 @@ export class UsuarioController {
             catchError(() => of(undefined))
           );
       }
+=======
+    login(nombreUsuario: string, password: string): Observable<Usuario | undefined> {
+        const url = 'http://localhost:3111/api/iniciarSesion';
+        const body = { nombreUsuario, password };
+    
+        return this.http.post<Usuario | undefined>(url, body)
+          .pipe(
+            tap(usuario => {
+              if (usuario && usuario.id) {
+                localStorage.setItem('idUsuario', usuario.id.toString());
+              }
+            }),
+            catchError(() => of(undefined))
+          );
+      }
+
+    marcarVoto(id: number): void {
+        const usuario = this.obtenerUsuarioPorId(id);
+        if (usuario) {
+            usuario.voto = true;
+        }
+    }
+>>>>>>> parent of 5afeb32 (ultimos endpoints)
 }

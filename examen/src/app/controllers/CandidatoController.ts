@@ -26,8 +26,7 @@ export class CandidatoController {
                 }
             ],
             votos: 3,
-            color: 'rgb(30,144,255)',
-            opcion: undefined
+            color: 'rgb(30,144,255)'
         },
         {
             id: 2,
@@ -49,21 +48,29 @@ export class CandidatoController {
                 },
             ],
             votos: 15,
-            color: 'rgb(255,128,0)',
-            opcion: undefined
+            color: 'rgb(255,128,0)'
         }
     ];
 
     constructor() { }
 
+<<<<<<< HEAD
     obtenerCandidatos(): Candidato[] {
         return this.candidatos;
     }
+=======
+    obtenerCandidatos(): Observable<Candidato[]> {
+        const url = 'http://localhost:3111/api/obtenerCandidatos';
+        
+        return this.http.get<Candidato[]>(url);
+      }
+    
+>>>>>>> parent of 5afeb32 (ultimos endpoints)
 
-    /*obtenerCandidatoPorNombre(nombre: string): Candidato | undefined {
+    obtenerCandidatoPorNombre(nombre: string): Candidato | undefined {
         const candidato = this.candidatos.find(c => c.nombre === nombre);
         return candidato;
-    }*/
+    }
 
     votarPorCandidato(id: number): void {
         const candidato = this.candidatos.find(c => c.id === id);

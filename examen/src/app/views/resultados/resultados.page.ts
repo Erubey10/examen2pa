@@ -1,7 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ArcElement, BarController, BarElement, CategoryScale, Chart, DoughnutController, Legend, LineController, LineElement, LinearScale, PointElement, Title, Tooltip } from 'chart.js';
+<<<<<<< HEAD
 import { combineLatest, map } from 'rxjs';
 import { ModalController, NavController } from '@ionic/angular'; // Importa ModalController
+=======
+>>>>>>> parent of 5afeb32 (ultimos endpoints)
 import { CandidatoController } from 'src/app/controllers/CandidatoController';
 
 @Component({
@@ -26,6 +29,7 @@ export class ResultadosPage implements AfterViewInit {
 
   ngAfterViewInit() {
     this.barChartMethod();
+<<<<<<< HEAD
     this.doughnutChartMethod();
 <<<<<<< HEAD
   }
@@ -45,6 +49,9 @@ export class ResultadosPage implements AfterViewInit {
     return color;
 =======
 >>>>>>> parent of 94fdbe3 (endpoints added and modified views)
+=======
+    //this.doughnutChartMethod();
+>>>>>>> parent of 5afeb32 (ultimos endpoints)
   }
 
   barChartMethod() {
@@ -57,6 +64,7 @@ export class ResultadosPage implements AfterViewInit {
       Legend,
       BarController
     );
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     // Combina los observables de candidatos y votos
@@ -89,24 +97,31 @@ export class ResultadosPage implements AfterViewInit {
         data: {
           labels: candidatos.map(c => c.nombre),
           datasets: [{
+=======
+    /*this.barChart = new Chart(this.barCanvas.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: this.candidatoController.obtenerCandidatos().map(c => c.nombre),
+        datasets: [{
+>>>>>>> parent of 5afeb32 (ultimos endpoints)
           label: '# of Votes',
-          data: opcionesVotos,
-          backgroundColor: color.map( c => c.color),
-          borderColor: this.getRandomColor(),
+          data: this.candidatoController.obtenerCandidatos().map(c => c.votos),
+          backgroundColor: this.candidatoController.obtenerCandidatos().map(c => c.color),
+          borderColor: 'rgb(30,144,255)',
           borderWidth: 1
         }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
           }
         }
-      });
-    });
+      }
+    });*/
   }
 
+<<<<<<< HEAD
 
 =======
     this.barChart = new Chart(this.barCanvas.nativeElement, {
@@ -180,5 +195,25 @@ export class ResultadosPage implements AfterViewInit {
 
 =======
 >>>>>>> parent of 94fdbe3 (endpoints added and modified views)
+=======
+  /*doughnutChartMethod() {
+    Chart.register(DoughnutController, ArcElement, Tooltip, Legend);
+    
+    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+      type: 'doughnut',
+      data: {
+        labels: this.candidatoController.obtenerCandidatos().map(c => c.nombre),
+        datasets: [{
+          label: '# of Votes',
+          data: this.candidatoController.obtenerCandidatos().map(c => c.votos),
+          backgroundColor: this.candidatoController.obtenerCandidatos().map(c => c.color),
+          hoverOffset: 4
+        }]
+      }
+    });
+  }*/
+>>>>>>> parent of 5afeb32 (ultimos endpoints)
 
 }
+
+
