@@ -16,5 +16,5 @@ export class DetallesCandidatoComponent {
     this.modalController.dismiss();
   }
 
-  ngOnInit() {}
+
 }

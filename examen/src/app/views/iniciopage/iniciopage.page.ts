@@ -30,7 +30,6 @@ export class IniciopagePage implements OnInit {
   }
 
   async verDetalles(candidato: any) {
-    console.log(candidato)
     const modal = await this.modalController.create({
       component: DetallesCandidatoComponent,
       componentProps: { candidato: candidato }
@@ -59,7 +58,6 @@ export class IniciopagePage implements OnInit {
   }
 
 }
-
 
 
 

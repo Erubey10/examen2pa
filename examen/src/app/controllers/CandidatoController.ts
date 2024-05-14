@@ -54,18 +54,9 @@ export class CandidatoController {
 
     constructor() { }
 
-<<<<<<< HEAD
     obtenerCandidatos(): Candidato[] {
         return this.candidatos;
     }
-=======
-    obtenerCandidatos(): Observable<Candidato[]> {
-        const url = 'http://localhost:3111/api/obtenerCandidatos';
-        
-        return this.http.get<Candidato[]>(url);
-      }
-    
->>>>>>> parent of 5afeb32 (ultimos endpoints)
 
     obtenerCandidatoPorNombre(nombre: string): Candidato | undefined {
         const candidato = this.candidatos.find(c => c.nombre === nombre);
