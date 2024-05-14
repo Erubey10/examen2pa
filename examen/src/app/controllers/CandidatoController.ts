@@ -1,7 +1,5 @@
 import { Injectable } from "@angular/core";
 import Candidato from "../models/Candidato";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -56,8 +54,9 @@ export class CandidatoController {
         }
     ];
 
-    constructor(private http: HttpClient) { }
+    constructor() { }
 
+<<<<<<< HEAD
     obtenerCandidatos(): Observable<Candidato[]> {
         const url = 'https://mybluu.tech:3004/api/obtenerCandidatos';
         
@@ -69,6 +68,11 @@ export class CandidatoController {
         return this.http.get<any[]>(url);
       }
     
+=======
+    obtenerCandidatos(): Candidato[] {
+        return this.candidatos;
+    }
+>>>>>>> parent of 94fdbe3 (endpoints added and modified views)
 
     /*obtenerCandidatoPorNombre(nombre: string): Candidato | undefined {
         const candidato = this.candidatos.find(c => c.nombre === nombre);

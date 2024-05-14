@@ -27,6 +27,7 @@ export class ResultadosPage implements AfterViewInit {
   ngAfterViewInit() {
     this.barChartMethod();
     this.doughnutChartMethod();
+<<<<<<< HEAD
   }
 
   regresar() {
@@ -42,6 +43,8 @@ export class ResultadosPage implements AfterViewInit {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+=======
+>>>>>>> parent of 94fdbe3 (endpoints added and modified views)
   }
 
   barChartMethod() {
@@ -54,6 +57,7 @@ export class ResultadosPage implements AfterViewInit {
       Legend,
       BarController
     );
+<<<<<<< HEAD
 
     // Combina los observables de candidatos y votos
     combineLatest([
@@ -104,6 +108,30 @@ export class ResultadosPage implements AfterViewInit {
   }
 
 
+=======
+    this.barChart = new Chart(this.barCanvas.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: this.candidatoController.obtenerCandidatos().map(c => c.nombre),
+        datasets: [{
+          label: '# of Votes',
+          data: this.candidatoController.obtenerCandidatos().map(c => c.votos),
+          backgroundColor: this.candidatoController.obtenerCandidatos().map(c => c.color),
+          borderColor: this.candidatoController.obtenerCandidatos().map(c => c.color),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+
+>>>>>>> parent of 94fdbe3 (endpoints added and modified views)
   doughnutChartMethod() {
     Chart.register(DoughnutController, ArcElement, Tooltip, Legend);
 
@@ -142,6 +170,7 @@ export class ResultadosPage implements AfterViewInit {
       });
     });
   }
+<<<<<<< HEAD
 
   salir() {
     console.log('Saliendo...');
@@ -149,5 +178,7 @@ export class ResultadosPage implements AfterViewInit {
     localStorage.removeItem('idUsuario');
   }
 
+=======
+>>>>>>> parent of 94fdbe3 (endpoints added and modified views)
 
 }

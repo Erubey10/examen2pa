@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import Usuario from '../models/Usuario';
-import { Observable, catchError, of, tap } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -12,15 +10,15 @@ export class UsuarioController {
         { id: 2, nombre: 'Diego romero', correo: 'diego@romero.com', contrasena: '123456', voto: false },
     ];
 
-    constructor(private http: HttpClient) { }
+    constructor() { }
 
     agregarUsuario(nombre: string,
         correo: string,
         contrasena: string
     ): void {
-        /*const idNuevoUsuario = this.usuarios[this.usuarios.length - 1].id + 1;
+        const idNuevoUsuario = this.usuarios[this.usuarios.length - 1].id + 1;
         const nuevoUsuario = new Usuario(idNuevoUsuario, nombre, correo, contrasena);
-        this.usuarios.push(nuevoUsuario);*/
+        this.usuarios.push(nuevoUsuario);
     }
 
     /*obtenerUsuarioPorId(id: number): Usuario | undefined {
@@ -28,6 +26,7 @@ export class UsuarioController {
         return usuario;
     }*/
 
+<<<<<<< HEAD
     login(nombreUsuario: string, password: string): Observable<Usuario | undefined> {
         const url = 'https://mybluu.tech:3004/api/iniciarSesion';
         const body = { nombreUsuario, password };
@@ -42,6 +41,12 @@ export class UsuarioController {
             catchError(() => of(undefined))
           );
       }
+=======
+    login(correo: string, contrasena: string): Usuario | undefined {
+        const usuario = this.usuarios.find(u => u.correo === correo && u.contrasena === contrasena);
+        return usuario;
+    }
+>>>>>>> parent of 94fdbe3 (endpoints added and modified views)
 
       marcarVoto(usuarioID: number, opcion: string): Observable<any | undefined> {
         const url = 'https://mybluu.tech:3004/api/registrarVoto';
