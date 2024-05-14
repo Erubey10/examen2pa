@@ -1,10 +1,21 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>resultados</ion-title>
+    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <img class="logo" src="/assets/icon/logoDirecta2.png" alt="Logo">
+      <ion-button class="btn-icon" color="primary" expand="block" (click)="salir()">
+        <ion-icon slot="start" name="log-in-outline"></ion-icon>
+        Salir
+      </ion-button>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+
+  <ion-button class="btn-icon ion-button2" color="tertiary" (click)="regresar()">
+    <ion-icon name="arrow-back-circle-outline" class="btn-icon2"></ion-icon>
+    Regresar a inicio
+  </ion-button>
   <div class="ion-padding">
     <ion-card>
       <ion-card-header>
@@ -24,4 +35,8 @@
       </ion-card-content>
     </ion-card>
   </div>
+
+  <ion-footer>
+    <div style="height: 50px;"></div>
+  </ion-footer>
 </ion-content>

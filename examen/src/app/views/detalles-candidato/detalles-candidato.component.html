@@ -5,25 +5,33 @@
       <ion-button (click)="dismiss()">Cerrar</ion-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-list>
-    <ion-item>
-      <ion-avatar slot="start">
-        <ion-img [src]="candidato.imagen"></ion-img>
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ candidato.nombre }}</h2>
-        <p>{{ candidato.nombre }}</p>
-      </ion-label>
-      <div>
-        <ion-img class="partido-img" src="{{ candidato.partido.imagen }}" slot="end"></ion-img>
-        <p class="partido-nombre">{{ candidato.partido.nombre }}</p>
-      </div>
-    </ion-item>
-    <ion-item *ngFor="let propuesta of candidato.partido.propuestas">
-      <ion-label>
-        <h2>{{ propuesta.tema }}</h2>
-        <p>{{ propuesta.texto }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-item>
+          <ion-avatar slot="start">
+            <ion-img [src]="candidato.imagen"></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ candidato.nombre }}</h2>
+            <p>{{ candidato.nombre }}</p>
+          </ion-label>
+          <div>
+            <ion-img class="partido-img" [src]="candidato.partido.imagen" slot="end"></ion-img>
+            <p class="partido-nombre">{{ candidato.partido.nombre }}</p>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" *ngFor="let propuesta of candidato.partido.propuestas">
+        <ion-item>
+          <ion-label>
+            <h2>{{ propuesta.tema }}</h2>
+            <p>{{ propuesta.texto }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

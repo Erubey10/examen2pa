@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ArcElement, BarController, BarElement, CategoryScale, Chart, DoughnutController, Legend, LineController, LineElement, LinearScale, PointElement, Title, Tooltip } from 'chart.js';
 import { combineLatest, map } from 'rxjs';
+import { ModalController, NavController } from '@ionic/angular'; // Importa ModalController
 import { CandidatoController } from 'src/app/controllers/CandidatoController';
 
 @Component({
@@ -17,13 +18,19 @@ export class ResultadosPage implements AfterViewInit {
   barChart: any;
   doughnutChart: any;
 
-  constructor(private candidatoController: CandidatoController) {
-
+  constructor(
+    private candidatoController: CandidatoController,
+    private navCtrl: NavController,
+  ) {
   }
 
   ngAfterViewInit() {
     this.barChartMethod();
     this.doughnutChartMethod();
+  }
+
+  regresar() {
+    this.navCtrl.navigateForward('/iniciopage');
   }
 
 
@@ -99,7 +106,7 @@ export class ResultadosPage implements AfterViewInit {
 
   doughnutChartMethod() {
     Chart.register(DoughnutController, ArcElement, Tooltip, Legend);
-    
+
     combineLatest([
       this.candidatoController.obtenerCandidatos(),
       this.candidatoController.obtenerVotos()
@@ -107,7 +114,7 @@ export class ResultadosPage implements AfterViewInit {
       // Mapea los votos para sumarlos por opción
       map(([candidatos, votos]) => {
         const opcionesVotos: Record<string, number> = {};
-    
+
         for (const voto of votos) {
           if (opcionesVotos[voto.opcion]) {
             opcionesVotos[voto.opcion]++;
@@ -120,7 +127,7 @@ export class ResultadosPage implements AfterViewInit {
     ).subscribe(({ candidatos, opcionesVotos }) => {
       // Construye los datasets del gráfico de barras
       const color = candidatos.map(() => this.getRandomColor());
-    
+
       this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
         type: 'doughnut',
         data: {
@@ -135,6 +142,12 @@ export class ResultadosPage implements AfterViewInit {
       });
     });
   }
-  
+
+  salir() {
+    console.log('Saliendo...');
+    this.navCtrl.navigateBack('/home');
+    localStorage.removeItem('idUsuario');
+  }
+
 
 }
