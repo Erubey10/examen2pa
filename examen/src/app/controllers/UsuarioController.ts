@@ -29,7 +29,7 @@ export class UsuarioController {
     }*/
 
     login(nombreUsuario: string, password: string): Observable<Usuario | undefined> {
-        const url = 'http://mybluu.tech:3004/api/iniciarSesion';
+        const url = 'https://mybluu.tech:3004/api/iniciarSesion';
         const body = { nombreUsuario, password };
     
         return this.http.post<Usuario | undefined>(url, body)
@@ -44,7 +44,7 @@ export class UsuarioController {
       }
 
       marcarVoto(usuarioID: number, opcion: string): Observable<any | undefined> {
-        const url = 'http://mybluu.tech:3004/api/registrarVoto';
+        const url = 'https://mybluu.tech:3004/api/registrarVoto';
         const body = { usuarioID, opcion };
         return this.http.post<any>(url, body)
           .pipe(

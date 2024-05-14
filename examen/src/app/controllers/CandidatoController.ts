@@ -59,12 +59,12 @@ export class CandidatoController {
     constructor(private http: HttpClient) { }
 
     obtenerCandidatos(): Observable<Candidato[]> {
-        const url = 'http://mybluu.tech:3004/api/obtenerCandidatos';
+        const url = 'https://mybluu.tech:3004/api/obtenerCandidatos';
         
         return this.http.get<Candidato[]>(url);
       }
     obtenerVotos(): Observable<Candidato[]> {
-        const url = 'http://mybluu.tech:3004/api/obtenerVotos';
+        const url = 'https://mybluu.tech:3004/api/obtenerVotos';
         
         return this.http.get<any[]>(url);
       }
