@@ -13,7 +13,7 @@ export class CandidatoController {
             cargo: 'Presidente Nacional',
             partidoPolitico: {
                 nombre: 'Partido del otro bando',
-                imagen: '/assets/icon/img/frankPartido.webp'
+                imagen: 'https://wallpapercave.com/wp/wp5818367.jpg'
             },
             propuestas: [
                 {
@@ -35,7 +35,7 @@ export class CandidatoController {
             cargo: 'Presidente Municipal',
             partidoPolitico: {
                 nombre: 'Partido Castores',
-                imagen: '/assets/icon/img/castores.jpg'
+                imagen: 'https://i.ytimg.com/vi/Or7W0auWRw0/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGCUgVSh_MA8=&rs=AOn4CLAERDJGjzzkO1p5IPQA_iFLkhi5Zw'
             },
             propuestas: [
                 {
